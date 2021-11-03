@@ -7,13 +7,15 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
 #        show_sql: true
         format_sql: true
+        default_batch_fetch_size: 100
+    open-in-view: true # false
 
 logging:
   level:
     org.hibernate.SQL: debug # 이렇게 하면 hibernate가 생성하는 SQL이 디버그 모드로 다 보인다
-    org.hibernate.type: trace
+#    org.hibernate.type: trace

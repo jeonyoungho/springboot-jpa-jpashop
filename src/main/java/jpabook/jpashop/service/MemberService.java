@@ -2,9 +2,6 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,5 +50,15 @@ public class MemberService {
 
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
+    }
+
+    /**
+     * Command와 Query를 분리하는게 좋다. update란건 엔티티를 바꾸는 변경성 메서드인데 findOne()메서드로 조회해서 반환하는 꼴이 되버린다.
+     * 즉 커맨드와 쿼리가 같이 있는 꼴이 되어 분리하는게 좋다.
+     */
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
     }
 }

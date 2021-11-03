@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -35,6 +36,7 @@ public class Order {
      *
      * 다른데서도 만약 참조하는 곳이 있다면 막 쓰면 안됨 (잘못하면 다른쪽에서 지울때 다지워지고 복잡하게 얽혀돌아감)
      */
+    // @BatchSize(size = 1000)
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 

@@ -1,19 +1,5 @@
 package jpabook.jpashop;
 
-import com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.repository.MemberRepository;
-import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.Assert.*;
-
 //@RunWith(SpringRunner.class) // junit 에게 spring 관련된걸로 test 할거야라고 알려줘야함
 //@SpringBootTest
 //public class MemberRepositoryTest {
